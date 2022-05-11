@@ -82,7 +82,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href=" {{ route('accounts') }}" >Accounts</a>
-                <a class="dropdown-item" href=" {{ route('address') }}" data-toggle="modal" data-target="#staticBackdrop">Address Configuration</a>
+                <a class="dropdown-item" href=" {{ route('address') }}" >Address Configuration</a>
             </li>
           
         </ul>
@@ -100,24 +100,53 @@
 
         <!-- Modal -->
         <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Understood</button>
-            </div>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                            <form action="{{ route('logina.post') }}" method="POST">
+                                                @if(Session::get('Fail'))
+                                                    <div class="alert alert-danger">
+                                                        {{ Session::get('Fail') }}
+                                                    </div>
+                                                @endif
+
+                                                @csrf
+                                                <div class="form-group row">
+                                                    <label for="username" class="col-md-4 col-form-label text-md-right">Username</label>
+                                                    <div class="col-md-6">
+                                                        <input type="text" id="username" class="form-control" name="Admin_Username" required autofocus>
+                                                        @if ($errors->has('username'))
+                                                            <span class="text-danger">{{ $errors->first('username') }}</span>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                        
+                                                <div class="form-group row">
+                                                    <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
+                                                    <div class="col-md-6">
+                                                        <input type="password" id="password" class="form-control" name="Admin_Pass" required>
+                                                        @if ($errors->has('password'))
+                                                            <span class="text-danger">{{ $errors->first('password') }}</span>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                                
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary" >Login</button>
+                                </div>
+
+                            </form>
+                    </div>
+                </div>
             </div>
         </div>
-</div>
   
 @yield('content')
      

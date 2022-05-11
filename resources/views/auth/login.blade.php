@@ -11,6 +11,7 @@
                         <a class="nav-link text-right col font-weight-bold" href="{{ route('register') }}"> Register</a>
                     </div>
                 </div>
+
                 <div class="card">
                   
                     <div class="card-body">
@@ -52,6 +53,7 @@
                         
                     </div>
                 </div>
+                
           </div>
       </div>
   </div>
