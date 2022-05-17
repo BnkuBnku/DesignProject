@@ -15,9 +15,11 @@ return new class extends Migration
     {
         Schema::create('resort_register', function (Blueprint $table) {
             $table->id();
+            $table->string('Resort_name');
             $table->decimal('ResortLatitude_Coor', 8,6);
             $table->decimal('ResortLongitude_Coor', 9,6);
             $table->string('Resort_Address');
+            $table->string('resort_pic_url');
             $table->decimal('Services', 8,2);
             $table->decimal('Cottages', 8,2);
             $table->decimal('Essentials', 8,2);

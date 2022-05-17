@@ -11,19 +11,17 @@ use App\Models\receptionist;
 use App\Models\booking;
 use DB;
 
-class CheckOutController extends Controller
+class RefundController extends Controller
 {
     public function index(){
         if(session()->has('LoggedUser')){
-            return redirect('admin/checkout');
+            return redirect('admin/refund');
         }
     }
 
     public function navi(){
-        $books = DB::select('CALL DisplayCheckOut');
+        $books = DB::table('booking')->where('Status', 'Refunded')->get();
         $data = ['LoggedUserInfo'=>receptionist::where('id','=', session('LoggedUser'))->first()];
-        return View::make('admin/checkout', compact("books"))->with($data);
+        return View::make('admin/refund', compact("books"))->with($data);
     }
-
-    
 }

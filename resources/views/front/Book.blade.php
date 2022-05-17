@@ -3,10 +3,10 @@
             @section('content')
               
           <div class="card">
-            <a class="btn btn-danger" href="{{ route('homepage') }}" role="button"> Cancel and Back to Homepage</a>
+            <a class="btn btn-danger" href="{{ route('homepage') }}" role="button"> Back to Selection</a>
           </div>
 
-          <form action="{{ route('booking.post') }}" method="POST">
+          <form action="{{ route('transact') }}" method="POST">
           @csrf
             
             <div class="col" style="margin-top: 100px;" >
@@ -21,12 +21,12 @@
                     <div class="card-body">
                         <div class="col text-left">
                           <h4> Check-in:</h4>
-                          <input name="checkin" value="{{ $checkin }}" readonly> 
+                          <input class="form-control" name="checkIn" value="{{ $checkIn }}" readonly> 
                         </div>
 
                         <div class="col text-left">
                           <h4> Check-out:</h4>
-                          <input name="checkout" value="{{ $checkout }} " readonly> 
+                          <input class="form-control" name="checkOut" value="{{ $checkOut }} " readonly> 
                         </div>
                         
                         <div class="col text-left">
@@ -34,14 +34,36 @@
 
                           <div class="col text-left " style="margin-left:1px;">
                             <p >Adult:&nbsp;&nbsp; </p>
-                            <input name="numberAdult" value="{{ $numberAdult }}" readonly>
+                            <input class="form-control" name="numberAdult" value="{{ $numberAdult }}" readonly>
                           </div>
 
                           <div class="col text-left" style="margin-left:1px;">
                             <p>Child:&nbsp;&nbsp;  </p>
-                            <input name="numberChild" value="{{ $numberChild }}" readonly>
+                            <input class="form-control" name="numberChild" value="{{ $numberChild }}" readonly>
                           </div>
                         </div>
+                    </div>  <!-- Card Body -->
+                  </div>  <!-- Card -->
+
+                  <div class="card">
+                    <div class="card-header">
+                        <a class="text-left col font-weight-bold" style="font-size: 20px;">Selected Resort</a>
+                    </div>
+                  </div>
+
+                  <div class="card"> 
+                    <div class="card-body">
+                        <div class="col text-left">
+                          <h4> Resort Name:</h4>
+                          <input class="form-control" name="Resort_name" value="{{ $resorts->Resort_name }}" readonly> 
+                        </div>
+
+                        <div class="col text-left">
+                          <h4> Resort Address:</h4>
+                          <input class="form-control" name="Resort_Address" value="{{ $resorts->Resort_Address }}" readonly>
+                        </div>
+                        
+                        
                     </div>  <!-- Card Body -->
                   </div>  <!-- Card -->
                 </div> 
@@ -91,7 +113,8 @@
 
                         <div class="form-group">
                           <label for="inputAddress">Guest's Address</label>
-                          <input type="text" class="form-control" id="inputAddress" name="address" required>
+                          <input type="text" class="form-control" id="inputAddress" aria-describedby="AddHelp" name="address" required>
+                          <small id="AddHelp" class="form-text text-muted">Please, Try putting accurate address for distance estimation.</small>
                           @if ($errors->has('inputAddress'))
                               <span class="text-danger">{{ $errors->first('inputAddress') }}</span>
                           @endif

@@ -10,6 +10,8 @@ class transaction extends Model
 {
     use HasFactory;
 
+    protected $table = "transaction";
+
     protected $fillable = [
         'customer_id',
         'resort_register_id',

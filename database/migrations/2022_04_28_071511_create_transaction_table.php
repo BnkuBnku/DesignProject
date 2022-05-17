@@ -22,9 +22,6 @@ return new class extends Migration
             $table->unsignedBigInteger('resort_register_id');
             $table->foreign('resort_register_id')->references('id')->on('resort_register')->onDelete('cascade');
 
-            $table->unsignedBigInteger('receptionist_id');
-            $table->foreign('receptionist_id')->references('id')->on('receptionist')->onDelete('cascade');
-
             $table->decimal('Estimation_Fare', 8,2);
             $table->decimal('Standard_Payment', 8,2);
             $table->decimal('VAT', 8,2);

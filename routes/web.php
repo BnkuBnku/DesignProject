@@ -14,6 +14,8 @@ use App\Http\Controllers\BookpageController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\RefundController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +28,9 @@ use App\Http\Controllers\AdminController;
 |
 */
 
+//TEST
+Route::get('test', [BookpageController::class, 'test'])->name('test');
+
 //HOMEPAGE
 Route::get('/', [HomepageController::class, 'index'])->name('homepage');
 Route::post('post-get', [HomepageController::class, 'postGet'])->name('get.post');
@@ -34,11 +39,14 @@ Route::post('post-get', [HomepageController::class, 'postGet'])->name('get.post'
 Route::get('About', [AboutController::class, 'index'])->name('about'); 
 
 //BOOKPAGE
-Route::get('Book', [BookpageController::class, 'index'])->name('book');
-Route::post('post-book', [BookpageController::class, 'booking'])->name('booking.post');
-Route::get('Success', [BookpageController::class, 'success'])->name('success');
+Route::get('Book', [BookpageController::class, 'book'])->name('book');
+Route::get('front/ResortMap/{WataHek}', [BookpageController::class, 'gmaps'])->name('gmaps');
+Route::get('Success', [BookpageController::class, 'success'])->name('success'); 
 Route::get('Overview', [BookpageController::class, 'overview'])->name('overview');
+Route::get('front/Book/{id}/{checkin}/{checkout}/{numberAdult}/{numberChild}', [BookpageController::class, 'booking'])->name('booking.post');
+Route::post('Transact', [BookpageController::class, 'transact'])->name('transact');
 Route::post('post-final', [BookpageController::class, 'finalbook'])->name('final.post');
+
 
 //CONTACT
 Route::get('Contact', [ContactController::class, 'index'])->name('contact');
@@ -66,21 +74,29 @@ Route::get('admin/checkin', [CheckInController::class, 'navi']);
 //PENDING CRUD
 Route::get('pending', [PendingController::class, 'index'])->name('pending'); 
 Route::get('admin/pending', [PendingController::class, 'navi']); 
+Route::post('admin/pending/confirm/{id}', [PendingController::class, 'confirm'])->name('pending.confirm'); 
+Route::post('admin/pending/refund/{id}', [PendingController::class, 'refund'])->name('pending.refund'); 
 
 //CONFIRM CRUD ()
 Route::get('confirm', [ConfirmController::class, 'index'])->name('confirm'); 
 Route::get('admin/confirm', [ConfirmController::class, 'navi']); 
 
+//REFUNDED CRUD
+Route::get('refund', [RefundController::class, 'index'])->name('refund'); 
+Route::get('admin/refund', [RefundController::class, 'navi']); 
+
 //ACCOUNTS CRUD (COMPLETED/CAN BE IMPROVED)
 Route::get('accounts', [AccountController::class, 'index'])->name('accounts'); 
 Route::get('admin/accounts', [AccountController::class, 'navi']); 
 
-//ADDRESS CRUD (COMPLETED)
-Route::get('address', [AddressConController::class, 'index'])->name('address'); 
-Route::get('admin/address', [AddressConController::class, 'navi']); 
-Route::post('admin/address', [AddressConController::class, 'save'])->name('save');
-
-
+//ADDRESS CRUD (COMPLETED) 
+Route::get('resort', [AddressConController::class, 'index'])->name('resort'); 
+Route::get('create', [AddressConController::class, 'create'])->name('create'); 
+Route::post('post-createAddress', [AddressConController::class, 'postCreate'])->name('create.post'); 
+Route::get('admin/address/{resort}', [AddressConController::class, 'edit'])->name('resort.edit');           //Admin -> Resort -> Edit -> Address
+Route::post('admin/resort/delete/{id}', [AddressConController::class, 'destroy'])->name('resort.destroy');  //Admin -> Resort -> Delete 
+Route::get('admin/resort', [AddressConController::class, 'navi']); 
+Route::post('admin/address/{id}', [AddressConController::class, 'save'])->name('save');                     //Admin -> Resort -> Edit -> Address -> Save
 
 //ADMIN LOGIN (UNUSED)
 Route::get('loginA', [AuthController::class, 'loginA'])->name('loginA');

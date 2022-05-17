@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('Cus_Lname');
             $table->string('Cus_Address');
             $table->string('Cus_Number')->unique();
+            $table->timestamps();
         });
     }
 

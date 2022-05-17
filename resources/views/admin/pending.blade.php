@@ -7,6 +7,18 @@
   <div class="container">
       <div class="form-group row">
           <div class="row">
+
+                            @if(Session::get('Success'))
+                                <div class="alert alert-success">
+                                    {{ Session::get('Success') }}
+                                </div>
+                            @endif
+
+                            @if(Session::get('Fail'))
+                                <div class="alert alert-danger">
+                                    {{ Session::get('Fail') }}
+                                </div>
+                            @endif
               
                     <div clas="col">
                         <h2 style="color: orange;"> PENDING BOOKING </h2>
@@ -15,7 +27,7 @@
                     <table class="table" style="margin-top: 50px;">
                         <thead>
                             <tr>
-                            <th scope="col">CODE</th>
+                            <th scope="col">REFERRAL CODE</th>
                             <th scope="col">USERNAME</th>
                             <th scope="col">ADULT COUNT</th>
                             <th scope="col">CHILD COUNT</th>
@@ -37,10 +49,23 @@
                                 <td>{{ $book->Check_Out }}</td>
                                 <td>{{ $book->Status }}</td>
                                 <td>{{ $book->created_at }}</td>
+
+                                <td>
+                                    <form  action="{{ route('pending.confirm', $book->id) }}" method="POST" class="form-hidden">
+                                        @csrf    
+                                        <button class="btn btn-success">CONFIRM</button>
+                                    </form>
+                                </td>
+                                <td >
+                                    <form action="{{ route('pending.refund', $book->id) }}" method="POST"class="form-hidden">
+                                        @csrf    
+                                        <button class="btn btn-danger ">REFUND</button>
+                                    </form>
+                                </td>
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="8"> No Bookings Found</td>
+                                <td colspan="8"> No Pending Bookings Found</td>
                             </tr>
                             @endforelse
 

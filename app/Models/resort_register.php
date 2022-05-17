@@ -12,6 +12,7 @@ class resort_register extends Model
     protected $table = "resort_register";
 
     protected $fillable = [
+        'Resort_name',
         'ResortLatitude_Coor',
         'ResortLongitude_Coor',
         'Resort_Address',

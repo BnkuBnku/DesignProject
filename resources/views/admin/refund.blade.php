@@ -9,7 +9,7 @@
           <div class="row">
               
                     <div clas="col">
-                        <h2 style="color: purple;"> CONFIRM BOOKING </h2>
+                        <h2 style="color: brown;"> REFUNDED BOOKING </h2>
                     </div>
 
                     <table class="table" style="margin-top: 50px;">
@@ -40,7 +40,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="8"> No Confirmed Bookings Found</td>
+                                <td colspan="8"> No Refunded Bookings Found</td>
                             </tr>
                             @endforelse
 

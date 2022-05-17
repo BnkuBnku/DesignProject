@@ -12,7 +12,20 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 
+    <style type="text/css">
     
+            
+            /* Centered text */
+            .centered {
+            text-align: center;
+            position: absolute;
+            top: 65%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            }
+
+            
+</style>
 </head>
 <body>
 
@@ -48,7 +61,7 @@
         </div>
 
         <center>
-                <div  style="font-size:10px; margin-top: 700px;">
+                <div  style="font-size:10px; margin-top: 200px;">
                     <a style="font-size: 20px">@COPYRIGHT 2022 All Reserve | SSG RESORT WATAMPAM</a>
                 </div>
         </center>

@@ -20,9 +20,37 @@ class PendingController extends Controller
     }
 
     public function navi(){
-        $books = DB::select('select * from booking');
+        $books = DB::table('booking')->where('Status', 'Pending')->get();
         $data = ['LoggedUserInfo'=>receptionist::where('id','=', session('LoggedUser'))->first()];
         return View::make('admin/pending', compact("books"))->with($data);
+    }
+
+    public function confirm($id){
+        try{
+            $booking = booking::find($id);
+            $status = "Confirmed";
+            $booking->Status = $status;
+            $booking->update();
+            
+            return redirect()->route('pending')->with('Success', 'Confirmation Successfully');
+        }
+        catch(Exception $e){
+            return back()->with('Fail', 'Confirmation Unsuccessfully');
+        }
+    }
+
+    public function refund($id){
+        try{
+            $booking = booking::find($id);
+            $status = "Refunded";
+            $booking->Status = $status;
+            $booking->update();
+
+            return redirect()->route('pending')->with('Success', 'Refunded Successfully');
+        }
+        catch(Exception $e){
+            return back()->with('Fail', 'Refunding Unsuccessfully');
+        }
     }
 
 }

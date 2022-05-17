@@ -20,7 +20,7 @@ class CheckInController extends Controller
     }
 
     public function navi(){
-        $books = DB::select('select * from booking');
+        $books = DB::select('CALL DisplayCheckIn');
         $data = ['LoggedUserInfo'=>receptionist::where('id','=', session('LoggedUser'))->first()];
         return View::make('admin/checkin', compact("books"))->with($data);
     }

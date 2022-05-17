@@ -20,7 +20,7 @@ class ConfirmController extends Controller
     }
 
     public function navi(){
-        $books = DB::select('select * from booking');
+        $books = DB::table('booking')->where('Status', 'Confirmed')->get();
         $data = ['LoggedUserInfo'=>receptionist::where('id','=', session('LoggedUser'))->first()];
         return View::make('admin/confirm', compact("books"))->with($data);
     }

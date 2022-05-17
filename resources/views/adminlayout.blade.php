@@ -67,7 +67,8 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href=" {{ route('pending') }}">Pending Bookings</a>
-                <a class="dropdown-item" href=" {{ route('confirm') }}">Confirm Bookings</a>
+                <a class="dropdown-item" href=" {{ route('confirm') }}">Confirmed Bookings</a>
+                <a class="dropdown-item" href=" {{ route('refund') }}">Refunded Bookings</a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href=" {{ route('checkin') }}">Check-In</a>
@@ -82,7 +83,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href=" {{ route('accounts') }}" >Accounts</a>
-                <a class="dropdown-item" href=" {{ route('address') }}" >Address Configuration</a>
+                <a class="dropdown-item" href=" {{ route('resort') }}" >Address Configuration</a>
             </li>
           
         </ul>

@@ -14,6 +14,12 @@
                                 <h2> Your Book Successfully Added to our Queue</h2>
                                 <h2> Please wait for confirmation</h2>
                                 <small> After confirming We either Call/Send Email, This will take 5-10mins </small>
+
+                                <div class="">
+                                    <a type="button" class="btn btn-primary" href="{{ route('homepage') }}">
+                                        Homepage
+                                    </a>
+                                </div>
                         
                         </div>  <!-- Card Body -->
                     </div>  <!-- Card -->

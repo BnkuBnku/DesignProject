@@ -22,14 +22,6 @@
                             <img src="images/it.jpg" class="d-block w-100" alt="...">
                           </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
-                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                          <span class="sr-only">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-target="#carouselExampleIndicators" data-slide="next">
-                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                          <span class="sr-only">Next</span>
-                        </button>
                       </div>   
                       </div>
                     </div>
@@ -99,7 +91,7 @@
                             <center>
                               <h5 class="card-title">ROOMS  </h5>
                             </center>
-                              <p class="card-text">HAVING A GOOD CONDITION AND ALSO HAVING THE AESTHEIC AMBIANCE TO RELAX.</p>
+                              <p class="card-text">HAVING A GOOD CONDITION AND ALSO HAVING THE AESTHETIC AMBIANCE TO RELAX.</p>
                             </div>
                           </div>
                         </div>
@@ -108,7 +100,7 @@
                 </div>
 </div>
 
-              <div class="jumbotron">
+              <div class="jumbotron" style="margin-top: 40px; ">
                 <h1 class="display-4">BOOK NOW WITH US!</h1>
                 <p class="lead">WE ARE HAPPY TO ACCOMDATE AND CATER YOUR RELAXATION WITH US !</p>
                 <hr class="my-4">
