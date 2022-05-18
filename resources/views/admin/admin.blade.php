@@ -74,7 +74,7 @@
                         </tr>
                         @empty
                         <tr>
-                            <td colspan="8"> No Resorts Found</td>
+                            <td colspan="8"> No Guest Bookings Found</td>
                         </tr>
                         @endforelse
                     </tbody>

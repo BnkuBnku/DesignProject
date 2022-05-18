@@ -15,7 +15,7 @@
                     <table class="table" style="margin-top: 50px;">
                         <thead>
                             <tr>
-                            <th scope="col">CODE</th>
+                            <th scope="col">REFERRAL CODE</th>
                             <th scope="col">USERNAME</th>
                             <th scope="col">ADULT COUNT</th>
                             <th scope="col">CHILD COUNT</th>

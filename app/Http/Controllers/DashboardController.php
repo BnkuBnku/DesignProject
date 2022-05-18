@@ -17,7 +17,7 @@ class DashboardController extends Controller
 
     public function navi(){
         $guestDisplays = DB::select('CALL DisplayGuest');
-
+        
         $pending = DB::select('CALL DisplayPending');
 
         $confirm = DB::select('CALL DisplayConfirm');
@@ -39,12 +39,6 @@ class DashboardController extends Controller
                                                                     ->with('pendingCount', $pendingCount)
                                                                     ->with('confirmCount', $confirmCount)
                                                                     ->with('refundCount', $refundCount);
-    }
-
-    public function count(){
-
-
-        $wordCount = count($wordlist);
     }
 
 
