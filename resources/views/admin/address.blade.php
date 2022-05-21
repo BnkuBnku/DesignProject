@@ -14,9 +14,7 @@
                     </div>
                 </div> 
                 <div class="card">
-                  
                     <div class="card-body">
-                    
                         <form action="{{ route('save', $resorts->id) }}" method="POST">
                             @if(Session::get('Fail'))
                                 <div class="alert alert-danger">
@@ -148,16 +146,12 @@
                                             <button type="submit" class="btn btn-primary">
                                                 Save
                                             </button>
-                                    
                                     </div>
                                 </div>
-                        </form>
-                        
-                    </div>
-                            
-                        
+                        </form> 
                     </div>
                 </div>
+            </div>
           </div>
       </div>
   </div>

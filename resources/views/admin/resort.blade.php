@@ -37,7 +37,7 @@
                                 <th scope="row">{{ $resort->id }}</th>
                                 <td >{{ $resort->Resort_name }}</td>
                                 <td >{{ $resort->Resort_Address }}</td>
-                                <td  class="d-inline-block text-truncate" style="max-width: 150px;">{{ $resort->resort_pic_url }}</td>
+                                <td class="d-inline-block text-truncate" style="max-width: 150px;">{{ $resort->resort_pic_url }}</td>
                                 <td>{{ $resort->ResortLatitude_Coor }}</td>
                                 <td>{{ $resort->ResortLongitude_Coor }}</td>
                                 <td>{{ $resort->Services }}</td>

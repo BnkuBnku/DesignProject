@@ -104,6 +104,6 @@
                 <h1 class="display-4">BOOK NOW WITH US!</h1>
                 <p class="lead">WE ARE HAPPY TO ACCOMDATE AND CATER YOUR RELAXATION WITH US !</p>
                 <hr class="my-4">
-                <a class="btn btn-primary btn-lg" href="http://127.0.0.1:8000/#" role="button">BOOK NOW !</a>
+                <a class="btn btn-primary btn-lg" href="{{ route('homepage') }}" role="button">BOOK NOW !</a>
               </div>
 @endsection
