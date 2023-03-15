@@ -14,7 +14,7 @@ class HomepageController extends Controller
     }
 
     public function postGet(Request $request){
-        
+
         //Validate
         $rules = [
             'checkOut' => 'required',
@@ -30,27 +30,27 @@ class HomepageController extends Controller
 		}
         else{
 
-            try{                
-                $checkIn = $request->checkIn;
-                $checkOut = $request->checkOut;
-                $numberAdult = $request->numberAdult;
-                $numberChild = $request->numberChild;
+            try {
+                $checkIn = $request->input('checkIn');
+                $checkOut = $request->input('checkOut');
+                $numberAdult = $request->input('numberAdult');
+                $numberChild = $request->input('numberChild');
 
-                $resorts = DB::select('select * from resort_register');
+                $resorts = $resort->all();
 
-                return View::make('front/SearchResort', compact("resorts")) ->with('checkin', $checkIn)
-                                                                            ->with('checkout', $checkOut)
-                                                                            ->with('numberAdult', $numberAdult)
-                                                                            ->with('numberChild', $numberChild);   
-            }
-            catch(Exception $e){
+                return view('front.SearchResort', compact('resorts'))
+                    ->with('checkin', $checkIn)
+                    ->with('checkout', $checkOut)
+                    ->with('numberAdult', $numberAdult)
+                    ->with('numberChild', $numberChild);
+            } catch(Exception $e){
                 return back()->with('Fail', 'Something went wrong, try again');
             }
         }
     }
 
-    
- 
+
+
 }
 
 
